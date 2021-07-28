@@ -4,6 +4,7 @@ import Actions from "./reflux/Actions";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import IndexView from "./components/IndexView";
 import ReadView from "./components/ReadView";
+import AdsView from "./components/AdsView";
 
 class App extends Reflux.Component {
   constructor(props) {
@@ -31,6 +32,11 @@ class App extends Reflux.Component {
             render={(props) => (
               <IndexView productsList={this.state.products} {...props} />
             )}
+          />
+          <Route
+            exact
+            path="/ads"
+            render={(props) => <AdsView adsList={this.state.ads} {...props} />}
           />
           <Route
             path="/ads/:id"

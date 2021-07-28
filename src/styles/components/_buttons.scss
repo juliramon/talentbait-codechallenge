@@ -30,6 +30,15 @@ $red: red;
   color: $white;
 }
 
+.button-active {
+  background-color: $primary-light-color;
+  color: $primary-color;
+  svg {
+    margin-right: 8px;
+    stroke: #1d7cee;
+  }
+}
+
 .button-grey {
   background-color: $soft-grey;
   color: $dark-grey;
