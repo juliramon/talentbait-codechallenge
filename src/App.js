@@ -20,7 +20,7 @@ class App extends Reflux.Component {
 
   createAd = (ad) => Actions.createAd(ad);
   updateAd = (ad) => Actions.updateAd(ad);
-  deleteAd = (adId) => Actions.deleteAd(adId);
+  removeAd = (adId) => Actions.removeAd(adId);
 
   render() {
     return (
@@ -36,7 +36,13 @@ class App extends Reflux.Component {
           />
           <Route
             path="/ads/:id"
-            render={(props) => <ReadView adsList={this.state.ads} {...props} />}
+            render={(props) => (
+              <ReadView
+                adsList={this.state.ads}
+                removeAd={this.removeAd}
+                {...props}
+              />
+            )}
           />
         </Router>
       </div>

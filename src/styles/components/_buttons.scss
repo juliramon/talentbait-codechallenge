@@ -3,6 +3,7 @@ $primary-light-color: #eaf2fd;
 $dark-grey: #444444;
 $soft-grey: #e2e2e2;
 $white: #ffffff;
+$red: red;
 
 .button {
   border-radius: 6px;
@@ -32,4 +33,9 @@ $white: #ffffff;
 .button-grey {
   background-color: $soft-grey;
   color: $dark-grey;
+}
+
+.button-red {
+  background-color: $red;
+  color: $white;
 }

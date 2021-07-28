@@ -1,14 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Layout2 } from "tabler-icons-react";
 import AdCard from "./AdCard";
+import RemoveConfirmationModal from "./RemoveConfirmationModal";
 
-const ReadView = ({ adsList }) => {
+const ReadView = ({ adsList, removeAd }) => {
+  const [removeModalVisibility, setRemoveModalVisibility] = useState(false);
+  const handleRemoveModalVisibility = () =>
+    setRemoveModalVisibility(!removeModalVisibility);
   const location = useLocation();
   const filteredAds = adsList.filter((ad) =>
     location.pathname.includes(ad.productId)
   );
-  console.log(filteredAds);
   let adsSyntax;
   if (filteredAds.length > 1 || filteredAds.length === 0) {
     adsSyntax = "ads";
@@ -46,33 +49,47 @@ const ReadView = ({ adsList }) => {
         pageName={el.pageName}
         productId={el.productId}
         CTA={el.adCTA}
+        handleRemoveModalVisibility={handleRemoveModalVisibility}
       />
     ));
   }
 
+  let confirmationModal;
+  if (removeModalVisibility) {
+    confirmationModal = (
+      <RemoveConfirmationModal
+        removeAd={removeAd}
+        handleRemoveModalVisibility={handleRemoveModalVisibility}
+      />
+    );
+  }
+
   return (
-    <main>
-      <section className="panel">
-        <div className="panel__left-col panel-white">
-          <div className="panel__left-col__wrapper">
-            <Link
-              to={"/"}
-              className="panel__left-panel-button button button-active"
-            >
-              <Layout2 size={22} strokeWidth={2} /> List of products
-            </Link>
+    <>
+      <main>
+        <section className="panel">
+          <div className="panel__left-col panel-white">
+            <div className="panel__left-col__wrapper">
+              <Link
+                to={"/"}
+                className="panel__left-panel-button button button-active"
+              >
+                <Layout2 size={22} strokeWidth={2} /> List of products
+              </Link>
+            </div>
           </div>
-        </div>
-        <div className="panel__right-col panel-white">
-          <div className="panel__right-col__top-bar">
-            <span className="panel__right-col__items-ref">
-              {filteredAds.length} {adsSyntax} listed
-            </span>
+          <div className="panel__right-col panel-white">
+            <div className="panel__right-col__top-bar">
+              <span className="panel__right-col__items-ref">
+                {filteredAds.length} {adsSyntax} listed
+              </span>
+            </div>
+            <div className="panel__right-col__items">{listOfAds}</div>
           </div>
-          <div className="panel__right-col__items">{listOfAds}</div>
-        </div>
-      </section>
-    </main>
+        </section>
+      </main>
+      {confirmationModal}
+    </>
   );
 };
 

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Dots, Edit, Trash } from "tabler-icons-react";
 
 const AdCard = ({
+  id,
   pageImage,
   pageName,
   pageUrl,
@@ -9,6 +10,7 @@ const AdCard = ({
   description,
   image,
   CTA,
+  handleRemoveModalVisibility,
 }) => {
   const [dropdown, setDropdown] = useState(false);
   const handleSettingsDropdown = () => setDropdown(!dropdown);
@@ -24,7 +26,10 @@ const AdCard = ({
             </button>
           </li>
           <li className="ad-card__settings-item">
-            <button className="ad-card__settings-button button">
+            <button
+              className="ad-card__settings-button button"
+              onClick={() => handleRemoveModalVisibility()}
+            >
               <Trash size={24} strokeWidth={1.5} color={"black"} /> Remove ad
             </button>
           </li>
