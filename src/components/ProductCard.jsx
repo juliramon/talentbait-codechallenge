@@ -9,9 +9,9 @@ const ProductCard = ({ id, name, description, image, status, price }) => {
           <img src={image} alt={name} />
         </div>
         <div className="product-card__text-area">
-          <a href={`/ads/${id}`}>
+          <Link to={`/ads/${id}`}>
             <h3 className="product-card_title">{name}</h3>
-          </a>
+          </Link>
           <p className="product-card_description">
             {description.slice(0, 115)}...
           </p>

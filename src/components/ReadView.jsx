@@ -2,9 +2,11 @@ import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Layout2 } from "tabler-icons-react";
 import AdCard from "./AdCard";
+import CreateAdModal from "./CreateAdModal";
+import NavigationBar from "./NavigationBar";
 import RemoveConfirmationModal from "./RemoveConfirmationModal";
 
-const ReadView = ({ adsList, removeAd }) => {
+const ReadView = ({ adsList, removeAd, createAd }) => {
   const [removeModalVisibility, setRemoveModalVisibility] = useState(false);
   const [adToRemove, setAdToRemove] = useState(undefined);
   const handleRemoveModalVisibility = () =>
@@ -20,6 +22,20 @@ const ReadView = ({ adsList, removeAd }) => {
     adsSyntax = "ad";
   }
 
+  const [createModalVisibility, setCreateModalVisibility] = useState(false);
+  const handleCreateModalVisibility = () =>
+    setCreateModalVisibility(!createModalVisibility);
+
+  let createAdModal;
+  if (createModalVisibility) {
+    createAdModal = (
+      <CreateAdModal
+        handleCreateModalVisibility={handleCreateModalVisibility}
+        createAd={createAd}
+      />
+    );
+  }
+
   let listOfAds;
   if (filteredAds.length === 0) {
     listOfAds = (
@@ -31,7 +47,10 @@ const ReadView = ({ adsList, removeAd }) => {
           />
         </figure>
         <p>There are no ads created for this product</p>
-        <button className="button button-l button-blue">
+        <button
+          className="button button-l button-blue"
+          onClick={handleCreateModalVisibility}
+        >
           Create a new add
         </button>
       </div>
@@ -69,6 +88,7 @@ const ReadView = ({ adsList, removeAd }) => {
 
   return (
     <>
+      <NavigationBar createAd={createAd} />
       <main>
         <section className="panel">
           <div className="panel__left-col panel-white">
@@ -92,6 +112,7 @@ const ReadView = ({ adsList, removeAd }) => {
         </section>
       </main>
       {confirmationModal}
+      {createAdModal}
     </>
   );
 };

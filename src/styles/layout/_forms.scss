@@ -1,0 +1,23 @@
+.ad-composer__form {
+  padding: 0 15px;
+  .ad-composer__form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+    .ad-composer__label {
+      font-size: 0.9em;
+      font-weight: 500;
+      margin-bottom: 8px;
+    }
+    .ad-composer__form-control {
+      border-radius: 4px;
+      padding: 15px;
+      font-size: 0.9em;
+      border: 1px solid #e2e2e2;
+      box-shadow: none;
+    }
+    .ad-composer__form-button {
+      justify-content: center;
+    }
+  }
+}

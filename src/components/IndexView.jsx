@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react";
-import { Link, useHistory, useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { Layout2 } from "tabler-icons-react";
+import NavigationBar from "./NavigationBar";
 import ProductCard from "./ProductCard";
 import ToastNotification from "./ToastNotification";
 
 const IndexView = ({ productsList }) => {
   const location = useLocation();
-  const history = useHistory();
+
   const [toastVisibility, setToastVisibility] = useState(false);
   const handleToastVisibility = () => setToastVisibility(!toastVisibility);
   const listOfProducts = productsList.map((el, idx) => (
@@ -26,10 +27,9 @@ const IndexView = ({ productsList }) => {
       setToastVisibility(true);
       setInterval(() => {
         setToastVisibility(false);
-        history.push("/");
       }, 5000);
     }
-  }, [location, history]);
+  }, [location]);
 
   let toastNotification;
   if (toastVisibility) {
@@ -39,6 +39,7 @@ const IndexView = ({ productsList }) => {
   }
   return (
     <>
+      <NavigationBar />
       <main>
         {toastNotification}
         <section className="panel">

@@ -3,7 +3,6 @@ import store from "./reflux/Store";
 import Actions from "./reflux/Actions";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import IndexView from "./components/IndexView";
-import NavigationBar from "./components/NavigationBar";
 import ReadView from "./components/ReadView";
 
 class App extends Reflux.Component {
@@ -18,14 +17,14 @@ class App extends Reflux.Component {
     Actions.getAds();
   }
 
-  createAd = (ad) => Actions.createAd(ad);
+  createAd = (productId, title, description, CTA, image) =>
+    Actions.createAd(productId, title, description, CTA, image);
   updateAd = (ad) => Actions.updateAd(ad);
   removeAd = (adId) => Actions.removeAd(adId);
 
   render() {
     return (
       <div className="app">
-        <NavigationBar />
         <Router>
           <Route
             exact
@@ -40,6 +39,7 @@ class App extends Reflux.Component {
               <ReadView
                 adsList={this.state.ads}
                 removeAd={this.removeAd}
+                createAd={this.createAd}
                 {...props}
               />
             )}
