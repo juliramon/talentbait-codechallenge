@@ -1,25 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+import "./styles/main.scss";
+import Reflux from "reflux";
+import store from "./reflux/Store";
+import Actions from "./reflux/Actions";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Reflux.Component {
+  constructor(props) {
+    super(props);
+    this.state = {};
+    this.store = store;
+  }
+  componentDidMount() {
+    Reflux.initStore(store);
+    Actions.getProducts();
+  }
+
+  createAd = (ad) => Actions.createAd(ad);
+  updateAd = (ad) => Actions.updateAd(ad);
+  deleteAd = (adId) => Actions.deleteAd(adId);
+
+  render() {
+    return (
+      <Router>
+        <Route
+          exact
+          path="/"
+          render={(props) => (
+            <IndevView productsList={this.state.products} {...props} />
+          )}
+        />
+      </Router>
+    );
+  }
 }
-
-export default App;
