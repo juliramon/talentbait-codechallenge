@@ -50,9 +50,6 @@ const IndexView = ({ productsList }) => {
               >
                 <Layout2 size={22} strokeWidth={2} /> List of products
               </Link>
-              <Link to={"/ads"} className="panel__left-panel-button button">
-                <Ad size={22} strokeWidth={2} /> List of ads
-              </Link>
             </div>
           </div>
           <div className="panel__right-col panel-white">
