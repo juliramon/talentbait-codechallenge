@@ -17,8 +17,7 @@ class App extends Reflux.Component {
     Actions.getAds();
   }
 
-  createAd = (productId, title, description, CTA, image) =>
-    Actions.createAd(productId, title, description, CTA, image);
+  createAd = (ad) => Actions.createAd(ad);
   updateAd = (ad) => Actions.updateAd(ad);
   removeAd = (adId) => Actions.removeAd(adId);
 

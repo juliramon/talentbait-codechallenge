@@ -5,10 +5,10 @@ import AdCard from "./AdCard";
 const CreateAdModal = ({ handleCreateModalVisibility, createAd }) => {
   const initialFormState = {
     productId: "",
-    title: "",
-    description: "",
-    images: [],
-    CTA: "",
+    adTitle: "",
+    adDescription: "",
+    adImage: [],
+    adCTA: "",
   };
   const [state, setState] = useState(initialFormState);
   const handleChange = (e) =>
@@ -21,20 +21,19 @@ const CreateAdModal = ({ handleCreateModalVisibility, createAd }) => {
       const fileToUpload = e.target.files[0];
       setState({
         ...state,
-        images: [...state.images, URL.createObjectURL(fileToUpload)],
+        adImage: [...state.adImage, URL.createObjectURL(fileToUpload)],
       });
     }
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    const image = state.images[0];
-    console.log(image);
-    const { productId, title, description, CTA } = state;
-    createAd(productId, title, description, CTA, image);
+    const adImage = state.adImage[0];
+    const { productId, adTitle, adDescription, adCTA } = state;
+    createAd({ productId, adTitle, adDescription, adCTA, adImage });
     handleCreateModalVisibility();
   };
 
-  const imagesList = state.images.map((el, idx) => (
+  const imagesList = state.adImage.map((el, idx) => (
     <div className="ad-composer__images-list_image" key={idx}>
       <img src={el} alt="" />
     </div>
@@ -66,7 +65,7 @@ const CreateAdModal = ({ handleCreateModalVisibility, createAd }) => {
                 <label className="ad-composer__label">Title</label>
                 <input
                   type="text"
-                  name="title"
+                  name="adTitle"
                   placeholder="Ad title"
                   className="ad-composer__form-control"
                   autoComplete="off"
@@ -77,7 +76,7 @@ const CreateAdModal = ({ handleCreateModalVisibility, createAd }) => {
                 <label className="ad-composer__label">Description</label>
                 <input
                   type="text"
-                  name="description"
+                  name="adDescription"
                   placeholder="Ad description"
                   className="ad-composer__form-control"
                   autoComplete="off"
@@ -117,7 +116,7 @@ const CreateAdModal = ({ handleCreateModalVisibility, createAd }) => {
                 <label className="ad-composer__label">Call to action</label>
                 <input
                   type="text"
-                  name="CTA"
+                  name="adCTA"
                   placeholder="Eg. Download now"
                   className="ad-composer__form-control"
                   autoComplete="off"
@@ -147,10 +146,10 @@ const CreateAdModal = ({ handleCreateModalVisibility, createAd }) => {
                 }
                 pageName={"MuscleBait.com"}
                 pageUrl={"musclebait.com"}
-                title={state.title}
-                description={state.description}
-                CTA={state.CTA}
-                image={state.images[0]}
+                title={state.adTitle}
+                description={state.adDescription}
+                CTA={state.adCTA}
+                image={state.adImage[0]}
               />
             </div>
           </div>

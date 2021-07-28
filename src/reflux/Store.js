@@ -18,20 +18,10 @@ class StatusStore extends Reflux.Store {
   onGetAds() {
     return this.setState({ ...this.state, ads: ads });
   }
-  onCreateAd(productId, title, description, CTA, image) {
+  onCreateAd(adToCreate) {
+    console.log(adToCreate);
     const ads = this.state.ads;
-    ads.push({
-      productId: productId,
-      adTitle: title,
-      adDescription: description,
-      adCTA: CTA,
-      pageUrl: "musclebait.com",
-      pageImage:
-        "https://res.cloudinary.com/juligoodie/image/upload/v1627316817/talentbait/muscle-bait-logo_grahly.svg",
-      pageName: "MuscleBait",
-      adStatus: "Active",
-      adImage: image,
-    });
+    ads.push(adToCreate);
     return this.setState({ ...this.state, ads: ads });
   }
   onUpdateAd(adToUpdate) {

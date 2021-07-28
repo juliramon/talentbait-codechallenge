@@ -28,7 +28,7 @@ const UpdateAdModal = ({
       const fileToUpload = e.target.files[0];
       setState({
         ...state,
-        adImage: [...state.adImage, URL.createObjectURL(fileToUpload)],
+        adImage: URL.createObjectURL(fileToUpload),
       });
     }
   };
