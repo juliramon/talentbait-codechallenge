@@ -1,5 +1,6 @@
 import Reflux from "reflux";
 import Actions from "./Actions";
+import products from "../utils/products.json";
 
 class StatusStore extends Reflux.Store {
   constructor() {
@@ -10,7 +11,9 @@ class StatusStore extends Reflux.Store {
     };
     this.listenables = Actions;
   }
-  onGetProducts() {}
+  onGetProducts() {
+    return this.setState({ ...this.state, products: products });
+  }
   onGetAds() {}
   onCreateAd() {}
   onUpdateAd() {}

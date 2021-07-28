@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const ProductCard = ({ id, name, description, image, status, price }) => {
   return (
@@ -22,18 +23,15 @@ const ProductCard = ({ id, name, description, image, status, price }) => {
           <span className="product-card__stock">{status}</span>
         </div>
         <div className="product-card__buttons">
-          <a
-            href={`/ads/${id}`}
-            className="product-card__cta button button-grey"
-          >
+          <Link to={`#`} className="product-card__cta button button-grey">
             Read more
-          </a>
-          <a
-            href={`/ads/${id}`}
+          </Link>
+          <Link
+            to={`/ads/${id}`}
             className="product-card__cta button button-blue"
           >
             Manage ads
-          </a>
+          </Link>
         </div>
       </div>
     </div>
