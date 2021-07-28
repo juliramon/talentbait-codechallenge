@@ -48,5 +48,17 @@
       flex-wrap: wrap;
       margin: -10px;
     }
+    .panel__right-col__no-items {
+      margin: 0 auto;
+      figure {
+        margin: 50px 0 0 0;
+        img {
+          max-width: 300px;
+        }
+      }
+      .button {
+        margin: 0 auto;
+      }
+    }
   }
 }

@@ -4,6 +4,7 @@ import Actions from "./reflux/Actions";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import IndexView from "./components/IndexView";
 import NavigationBar from "./components/NavigationBar";
+import ReadView from "./components/ReadView";
 
 class App extends Reflux.Component {
   constructor(props) {
@@ -14,6 +15,7 @@ class App extends Reflux.Component {
   componentDidMount() {
     Reflux.initStore(store);
     Actions.getProducts();
+    Actions.getAds();
   }
 
   createAd = (ad) => Actions.createAd(ad);
@@ -31,6 +33,10 @@ class App extends Reflux.Component {
             render={(props) => (
               <IndexView productsList={this.state.products} {...props} />
             )}
+          />
+          <Route
+            path="/ads/:id"
+            render={(props) => <ReadView adsList={this.state.ads} {...props} />}
           />
         </Router>
       </div>

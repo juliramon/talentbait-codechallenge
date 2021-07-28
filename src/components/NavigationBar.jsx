@@ -1,8 +1,25 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { Help, Plus } from "tabler-icons-react";
 
 const NavigationBar = ({ pageTitle }) => {
+  const location = useLocation();
+  let primaryButton;
+  if (location.pathname.includes("ads")) {
+    primaryButton = (
+      <button className="navbar-top__right-button button button-m button-blue">
+        <Plus size={18} strokeWidth={2} color={"#ffffff"} /> Create a new ad
+      </button>
+    );
+  }
+  if (location.pathname === "/") {
+    primaryButton = (
+      <button className="navbar-top__right-button button button-m button-blue">
+        <Plus size={18} strokeWidth={2} color={"#ffffff"} /> Create a new
+        product
+      </button>
+    );
+  }
   return (
     <nav className="navbar-top">
       <div className="navbar-top__left">
@@ -19,10 +36,7 @@ const NavigationBar = ({ pageTitle }) => {
             <Help size={18} strokeWidth={2} color={"#444444"} />
             Need help?
           </button>
-          <button className="navbar-top__right-button button button-m button-blue">
-            <Plus size={18} strokeWidth={2} color={"#ffffff"} /> Create a new
-            product
-          </button>
+          {primaryButton}
         </div>
       </div>
     </nav>

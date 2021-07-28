@@ -1,0 +1,44 @@
+[
+  {
+    "adId": "0001",
+    "adTitle": "25% OFF | Good ol' Dumbbells",
+    "adDescription": "Get now your Good ol' Dumbbells 25% off",
+    "adImage": "https://res.cloudinary.com/dyiuxe5fa/image/upload/v1626282482/coding-challenge/wp3699391.jpg",
+    "adStatus": "Active",
+    "adSpentBudget": 12,
+    "adTotalBudget": 14.5,
+    "adCTA": "Shop Now",
+    "pageImage": "https://res.cloudinary.com/juligoodie/image/upload/v1627316817/talentbait/muscle-bait-logo_grahly.svg",
+    "pageUrl": "musclebait.com",
+    "pageName": "MuscleBait",
+    "productId": "0001"
+  },
+  {
+    "adId": "0002",
+    "adTitle": "SUMMER SALE | Evergrip Jump Rope",
+    "adDescription": "Military-grade Evergrip Jump Rope for home | Get yours now!",
+    "adImage": "https://res.cloudinary.com/dyiuxe5fa/image/upload/v1626333092/coding-challenge/rope.jpg",
+    "adStatus": "Active",
+    "adSpentBudget": 12,
+    "adTotalBudget": 14.5,
+    "adCTA": "Shop Now",
+    "pageImage": "https://res.cloudinary.com/juligoodie/image/upload/v1627316817/talentbait/muscle-bait-logo_grahly.svg",
+    "pageUrl": "musclebait.com",
+    "pageName": "MuscleBait",
+    "productId": "0002"
+  },
+  {
+    "adId": "0003",
+    "adTitle": "2X1 | Evergrip Jump Rope",
+    "adDescription": "Get your 2X1 Evergrip Jump Rope",
+    "adImage": "https://res.cloudinary.com/dyiuxe5fa/image/upload/v1626333092/coding-challenge/rope.jpg",
+    "adStatus": "Finished",
+    "adSpentBudget": 12,
+    "adTotalBudget": 14.5,
+    "adCTA": "Shop Now",
+    "pageImage": "https://res.cloudinary.com/juligoodie/image/upload/v1627316817/talentbait/muscle-bait-logo_grahly.svg",
+    "pageUrl": "musclebait.com",
+    "pageName": "MuscleBait",
+    "productId": "0002"
+  }
+]
