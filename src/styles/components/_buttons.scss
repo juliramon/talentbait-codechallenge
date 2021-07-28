@@ -1,0 +1,35 @@
+$primary-color: #1d7cee;
+$primary-light-color: #eaf2fd;
+$dark-grey: #444444;
+$soft-grey: #e2e2e2;
+$white: #ffffff;
+
+.button {
+  border-radius: 6px;
+  border: none;
+  box-shadow: none;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  svg {
+    margin-right: 4px;
+  }
+}
+
+.button-m {
+  padding: 8px 15px;
+}
+
+.button-l {
+  padding: 12px 15px;
+}
+
+.button-blue {
+  background-color: $primary-color;
+  color: $white;
+}
+
+.button-grey {
+  background-color: $soft-grey;
+  color: $dark-grey;
+}

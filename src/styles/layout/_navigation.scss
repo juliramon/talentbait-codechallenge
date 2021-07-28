@@ -1,0 +1,30 @@
+.navbar-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 50px;
+  .navbar-top__logo {
+    display: flex;
+    align-items: center;
+    .navbar-top__page-title {
+      font-weight: 600;
+      font-size: 1.2rem;
+      display: flex;
+      align-content: center;
+    }
+    .navbar-top__page-title::before {
+      content: "";
+      margin: 0 12px;
+      height: 24px;
+      background-color: #c0c0c0;
+      width: 1px;
+      display: inline-block;
+    }
+  }
+  .navbar-top__right-items {
+    display: flex;
+    .navbar-top__right-button:first-child {
+      margin-right: 12px;
+    }
+  }
+}
