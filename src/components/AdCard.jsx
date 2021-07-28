@@ -11,6 +11,7 @@ const AdCard = ({
   image,
   CTA,
   handleRemoveModalVisibility,
+  setAdToRemove,
 }) => {
   const [dropdown, setDropdown] = useState(false);
   const handleSettingsDropdown = () => setDropdown(!dropdown);
@@ -28,7 +29,10 @@ const AdCard = ({
           <li className="ad-card__settings-item">
             <button
               className="ad-card__settings-button button"
-              onClick={() => handleRemoveModalVisibility()}
+              onClick={() => {
+                handleRemoveModalVisibility();
+                setAdToRemove(id);
+              }}
             >
               <Trash size={24} strokeWidth={1.5} color={"black"} /> Remove ad
             </button>

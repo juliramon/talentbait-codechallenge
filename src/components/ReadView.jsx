@@ -6,6 +6,7 @@ import RemoveConfirmationModal from "./RemoveConfirmationModal";
 
 const ReadView = ({ adsList, removeAd }) => {
   const [removeModalVisibility, setRemoveModalVisibility] = useState(false);
+  const [adToRemove, setAdToRemove] = useState(undefined);
   const handleRemoveModalVisibility = () =>
     setRemoveModalVisibility(!removeModalVisibility);
   const location = useLocation();
@@ -50,6 +51,7 @@ const ReadView = ({ adsList, removeAd }) => {
         productId={el.productId}
         CTA={el.adCTA}
         handleRemoveModalVisibility={handleRemoveModalVisibility}
+        setAdToRemove={setAdToRemove}
       />
     ));
   }
@@ -60,6 +62,7 @@ const ReadView = ({ adsList, removeAd }) => {
       <RemoveConfirmationModal
         removeAd={removeAd}
         handleRemoveModalVisibility={handleRemoveModalVisibility}
+        adToRemove={adToRemove}
       />
     );
   }

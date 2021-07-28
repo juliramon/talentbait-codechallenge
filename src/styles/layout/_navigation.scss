@@ -6,6 +6,14 @@
   .navbar-top__logo {
     display: flex;
     align-items: center;
+    a {
+      display: flex;
+      align-items: center;
+    }
+    .navbar-top__logo-img {
+      width: 35px;
+      margin-right: 7px;
+    }
     .navbar-top__page-title {
       font-weight: 600;
       font-size: 1.2rem;

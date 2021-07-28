@@ -25,6 +25,13 @@ const NavigationBar = ({ pageTitle }) => {
       <div className="navbar-top__left">
         <div className="navbar-top__logo">
           <Link to="/">
+            <img
+              src={
+                "https://res.cloudinary.com/juligoodie/image/upload/v1627316817/talentbait/muscle-bait-logo_grahly.svg"
+              }
+              alt="MuscleBait"
+              className="navbar-top__logo-img"
+            />
             <span className="navbar-top__wordmark">MuscleBait</span>
           </Link>
           <span className="navbar-top__page-title">{pageTitle}</span>

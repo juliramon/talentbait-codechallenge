@@ -2,9 +2,16 @@ import React from "react";
 import { useHistory } from "react-router-dom";
 import { AlertCircle } from "tabler-icons-react";
 
-const RemoveConfirmationModal = ({ handleRemoveModalVisibility, removeAd }) => {
+const RemoveConfirmationModal = ({
+  handleRemoveModalVisibility,
+  removeAd,
+  adToRemove,
+}) => {
   const history = useHistory();
-  const handleRoute = () => history.push("/?r=true");
+  const handleRemoveAd = (adToRemove) => {
+    removeAd(adToRemove);
+    history.push("/?r=true");
+  };
   return (
     <>
       <div className="modal-overlay"></div>
@@ -31,7 +38,7 @@ const RemoveConfirmationModal = ({ handleRemoveModalVisibility, removeAd }) => {
               </button>
               <button
                 className="modal-footer__button button button-l button-red"
-                onClick={() => handleRoute()}
+                onClick={() => handleRemoveAd(adToRemove)}
               >
                 Remove
               </button>

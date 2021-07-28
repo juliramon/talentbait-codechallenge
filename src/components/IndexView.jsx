@@ -7,7 +7,6 @@ import ToastNotification from "./ToastNotification";
 const IndexView = ({ productsList }) => {
   const location = useLocation();
   const history = useHistory();
-  console.log(location);
   const [toastVisibility, setToastVisibility] = useState(false);
   const handleToastVisibility = () => setToastVisibility(!toastVisibility);
   const listOfProducts = productsList.map((el, idx) => (

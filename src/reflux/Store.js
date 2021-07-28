@@ -21,6 +21,7 @@ class StatusStore extends Reflux.Store {
   onCreateAd() {}
   onUpdateAd() {}
   onRemoveAd(adId) {
+    console.log("on remove ad....");
     const ads = this.state.ads;
     const adIndex = ads.findIndex((ad) => ad.adId === adId);
     ads.splice(adIndex, 1);
