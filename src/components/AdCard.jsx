@@ -3,16 +3,21 @@ import { Dots, Edit, Trash } from "tabler-icons-react";
 
 const AdCard = ({
   id,
-  pageImage,
-  pageName,
-  pageUrl,
   title,
   description,
   image,
   CTA,
-  handleRemoveModalVisibility,
   setAdToRemove,
+  setAdToUpdate,
+  handleRemoveModalVisibility,
+  handleUpdateModalVisibility,
 }) => {
+  const pageData = {
+    pageImage:
+      "https://res.cloudinary.com/juligoodie/image/upload/v1627316817/talentbait/muscle-bait-logo_grahly.svg",
+    pageUrl: "musclebait.com",
+    pageName: "MuscleBait",
+  };
   const [dropdown, setDropdown] = useState(false);
   const handleSettingsDropdown = () => setDropdown(!dropdown);
 
@@ -22,7 +27,13 @@ const AdCard = ({
       <div className="ad-card__settings-dropdown">
         <ul className="ad-card__settings-list">
           <li className="ad-card__settings-item">
-            <button className="ad-card__settings-button button">
+            <button
+              className="ad-card__settings-button button"
+              onClick={() => {
+                handleUpdateModalVisibility();
+                setAdToUpdate(id);
+              }}
+            >
               <Edit size={24} strokeWidth={1.5} color={"black"} /> Edit ad
             </button>
           </li>
@@ -46,10 +57,10 @@ const AdCard = ({
       <div className="ad-card">
         <div className="ad-card__top">
           <figure className="ad-card__page-image">
-            <img src={pageImage} alt={pageName} />
+            <img src={pageData.pageImage} alt={pageData.pageName} />
           </figure>
           <div className="ad-card__page-details">
-            <span className="ad-card__page-name">{pageName}</span>
+            <span className="ad-card__page-name">{pageData.pageName}</span>
             <span className="ad-card__page-ad">Sponsored</span>
           </div>
           <div
@@ -68,7 +79,7 @@ const AdCard = ({
         </figure>
         <div className="ad-card__content">
           <div className="ad-card__content-wrapper">
-            <span className="ad-card__ad-domain">{pageUrl}</span>
+            <span className="ad-card__ad-domain">{pageData.pageUrl}</span>
             <span className="ad-card__ad-title">{title}</span>
             <span className="ad-card__ad-description">{description}</span>
           </div>

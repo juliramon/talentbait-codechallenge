@@ -40,6 +40,7 @@ class App extends Reflux.Component {
                 adsList={this.state.ads}
                 removeAd={this.removeAd}
                 createAd={this.createAd}
+                updateAd={this.updateAd}
                 {...props}
               />
             )}

@@ -5,12 +5,21 @@ import AdCard from "./AdCard";
 import CreateAdModal from "./CreateAdModal";
 import NavigationBar from "./NavigationBar";
 import RemoveConfirmationModal from "./RemoveConfirmationModal";
+import UpdateAdModal from "./UpdateAdModal";
 
-const ReadView = ({ adsList, removeAd, createAd }) => {
-  const [removeModalVisibility, setRemoveModalVisibility] = useState(false);
+const ReadView = ({ adsList, removeAd, createAd, updateAd }) => {
   const [adToRemove, setAdToRemove] = useState(undefined);
+  const [adToUpdate, setAdToUpdate] = useState(undefined);
+  const [removeModalVisibility, setRemoveModalVisibility] = useState(false);
   const handleRemoveModalVisibility = () =>
     setRemoveModalVisibility(!removeModalVisibility);
+  const [createModalVisibility, setCreateModalVisibility] = useState(false);
+  const handleCreateModalVisibility = () =>
+    setCreateModalVisibility(!createModalVisibility);
+  const [updateModalVisibility, setUpdateModalVisibility] = useState(false);
+  const handleUpdateModalVisibility = () =>
+    setUpdateModalVisibility(!updateModalVisibility);
+
   const location = useLocation();
   const filteredAds = adsList.filter((ad) =>
     location.pathname.includes(ad.productId)
@@ -22,16 +31,23 @@ const ReadView = ({ adsList, removeAd, createAd }) => {
     adsSyntax = "ad";
   }
 
-  const [createModalVisibility, setCreateModalVisibility] = useState(false);
-  const handleCreateModalVisibility = () =>
-    setCreateModalVisibility(!createModalVisibility);
-
-  let createAdModal;
+  let createAdModal, updateAdModal;
   if (createModalVisibility) {
     createAdModal = (
       <CreateAdModal
         handleCreateModalVisibility={handleCreateModalVisibility}
         createAd={createAd}
+      />
+    );
+  }
+
+  if (updateModalVisibility) {
+    updateAdModal = (
+      <UpdateAdModal
+        handleUpdateModalVisibility={handleUpdateModalVisibility}
+        adToUpdate={adToUpdate}
+        adsList={adsList}
+        updateAd={updateAd}
       />
     );
   }
@@ -63,14 +79,12 @@ const ReadView = ({ adsList, removeAd, createAd }) => {
         title={el.adTitle}
         description={el.adDescription}
         image={el.adImage}
-        status={el.adStatus}
-        pageImage={el.pageImage}
-        pageUrl={el.pageUrl}
-        pageName={el.pageName}
         productId={el.productId}
         CTA={el.adCTA}
-        handleRemoveModalVisibility={handleRemoveModalVisibility}
         setAdToRemove={setAdToRemove}
+        setAdToUpdate={setAdToUpdate}
+        handleRemoveModalVisibility={handleRemoveModalVisibility}
+        handleUpdateModalVisibility={handleUpdateModalVisibility}
       />
     ));
   }
@@ -113,6 +127,7 @@ const ReadView = ({ adsList, removeAd, createAd }) => {
       </main>
       {confirmationModal}
       {createAdModal}
+      {updateAdModal}
     </>
   );
 };

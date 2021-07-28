@@ -34,7 +34,12 @@ class StatusStore extends Reflux.Store {
     });
     return this.setState({ ...this.state, ads: ads });
   }
-  onUpdateAd() {}
+  onUpdateAd(adToUpdate) {
+    const ads = this.state.ads;
+    const adIndex = ads.findIndex((ad) => ad.adId === adToUpdate.adId);
+    ads[adIndex] = adToUpdate;
+    return this.setState({ ...this.state, ads });
+  }
   onRemoveAd(adId) {
     const ads = this.state.ads;
     const adIndex = ads.findIndex((ad) => ad.adId === adId);
