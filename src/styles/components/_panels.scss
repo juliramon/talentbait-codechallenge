@@ -34,6 +34,7 @@
     height: calc(100vh - 130px);
     max-height: calc(100vh - 130px);
     overflow-y: scroll;
+    position: relative;
     .panel__right-col__top-bar {
       margin-bottom: 15px;
       .panel__right-col__items-ref {

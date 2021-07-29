@@ -4,11 +4,16 @@ import { Layout2 } from "tabler-icons-react";
 import NavigationBar from "./NavigationBar";
 import ProductCard from "./ProductCard";
 import ToastNotification from "./ToastNotification";
+import ProductFloatingPanel from "./ProductFloatingPanel";
 
 const IndexView = ({ productsList }) => {
   const location = useLocation();
   const [toastVisibility, setToastVisibility] = useState(false);
   const handleToastVisibility = () => setToastVisibility(!toastVisibility);
+  const [productPanelVisibility, setProductPanelVisibility] = useState(false);
+  const [productToShowcase, setProductToShowcase] = useState(undefined);
+  const handleProductPanelVisibility = () =>
+    setProductPanelVisibility(!productPanelVisibility);
   const listOfProducts = productsList.map((el, idx) => (
     <ProductCard
       key={idx}
@@ -18,6 +23,8 @@ const IndexView = ({ productsList }) => {
       image={el.productImage}
       status={el.productStatus}
       price={el.price}
+      handleProductPanelVisibility={handleProductPanelVisibility}
+      setProductToShowcase={setProductToShowcase}
     />
   ));
 
@@ -36,6 +43,17 @@ const IndexView = ({ productsList }) => {
       <ToastNotification handleToastVisibility={handleToastVisibility} />
     );
   }
+
+  let productPanel;
+  if (productPanelVisibility) {
+    productPanel = (
+      <ProductFloatingPanel
+        productToShowcase={productToShowcase}
+        handleProductPanelVisibility={handleProductPanelVisibility}
+      />
+    );
+  }
+
   return (
     <>
       <NavigationBar pageTitle={"List of products"} />
@@ -59,6 +77,7 @@ const IndexView = ({ productsList }) => {
               </span>
             </div>
             <div className="panel__right-col__items">{listOfProducts}</div>
+            {productPanel}
           </div>
         </section>
       </main>
