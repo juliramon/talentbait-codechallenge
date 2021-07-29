@@ -21,6 +21,12 @@ const AdCard = ({
   const [dropdown, setDropdown] = useState(false);
   const handleSettingsDropdown = () => setDropdown(!dropdown);
 
+  if (typeof image === "object") {
+    if (image.length === 0) {
+      image = undefined;
+    }
+  }
+
   let settingsDropdown, adBody;
   if (dropdown) {
     settingsDropdown = (
@@ -52,7 +58,7 @@ const AdCard = ({
       </div>
     );
   }
-  if (typeof image == "object" && image.length > 0) {
+  if (typeof image === "object" && image.length > 1) {
     const adBodyWrapper = image.map((el, idx) => (
       <div className="ad-card__multiple-wrapper" key={idx}>
         <figure className="ad-card__image">

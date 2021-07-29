@@ -129,6 +129,22 @@
               .ad-composer__images-list_image {
                 margin: 10px;
                 position: relative;
+                .ad-composer__images-list_button {
+                  cursor: pointer;
+                  border-radius: 50%;
+                  width: 25px;
+                  height: 25px;
+                  overflow: hidden;
+                  border: none;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  background-color: rgba(255, 255, 255, 0.9);
+                  position: absolute;
+                  right: 10px;
+                  top: 10px;
+                  color: #000000;
+                }
                 img {
                   border: 7px solid #fff;
                   border-radius: 8px;

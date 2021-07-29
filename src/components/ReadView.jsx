@@ -102,7 +102,7 @@ const ReadView = ({ adsList, removeAd, createAd, updateAd }) => {
 
   return (
     <>
-      <NavigationBar createAd={createAd} />
+      <NavigationBar createAd={createAd} pageTitle={"List of ads"} />
       <main>
         <section className="panel">
           <div className="panel__left-col panel-white">

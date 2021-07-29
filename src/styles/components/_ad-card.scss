@@ -258,11 +258,16 @@
     margin: 4px;
     border-radius: 8px;
     overflow: hidden;
+    .ad-card__image {
+      border: 1px solid #e2e2e2;
+      border-radius: 8px 8px 0 0;
+    }
     .ad-card__content {
       border-radius: 0 0 8px 8px;
       overflow: hidden;
       background-color: #ffffff;
       border: 1px solid #e2e2e2;
+      margin-top: -1px;
       .ad-card__ad-title {
         white-space: normal;
       }

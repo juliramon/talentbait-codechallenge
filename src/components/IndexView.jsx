@@ -38,7 +38,7 @@ const IndexView = ({ productsList }) => {
   }
   return (
     <>
-      <NavigationBar />
+      <NavigationBar pageTitle={"List of products"} />
       <main>
         {toastNotification}
         <section className="panel">
