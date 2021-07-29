@@ -19,7 +19,6 @@ class StatusStore extends Reflux.Store {
     return this.setState({ ...this.state, ads: ads });
   }
   onCreateAd(adToCreate) {
-    console.log(adToCreate);
     const ads = this.state.ads;
     ads.push(adToCreate);
     return this.setState({ ...this.state, ads: ads });

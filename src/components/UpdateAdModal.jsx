@@ -41,7 +41,7 @@ const UpdateAdModal = ({
   };
 
   let imagesList;
-  if (typeof state.images === Object) {
+  if (typeof state.adImage === "object") {
     imagesList = state.adImage.map((el, idx) => (
       <div className="ad-composer__images-list_image" key={idx}>
         <img src={el} alt="" />

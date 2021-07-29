@@ -27,8 +27,7 @@ const CreateAdModal = ({ handleCreateModalVisibility, createAd }) => {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    const adImage = state.adImage[0];
-    const { productId, adTitle, adDescription, adCTA } = state;
+    const { productId, adTitle, adDescription, adImage, adCTA } = state;
     createAd({ productId, adTitle, adDescription, adCTA, adImage });
     handleCreateModalVisibility();
   };
@@ -149,7 +148,7 @@ const CreateAdModal = ({ handleCreateModalVisibility, createAd }) => {
                 title={state.adTitle}
                 description={state.adDescription}
                 CTA={state.adCTA}
-                image={state.adImage[0]}
+                image={state.adImage}
               />
             </div>
           </div>

@@ -21,7 +21,7 @@ const AdCard = ({
   const [dropdown, setDropdown] = useState(false);
   const handleSettingsDropdown = () => setDropdown(!dropdown);
 
-  let settingsDropdown;
+  let settingsDropdown, adBody;
   if (dropdown) {
     settingsDropdown = (
       <div className="ad-card__settings-dropdown">
@@ -52,6 +52,44 @@ const AdCard = ({
       </div>
     );
   }
+  if (typeof image == "object" && image.length > 0) {
+    const adBodyWrapper = image.map((el, idx) => (
+      <div className="ad-card__multiple-wrapper" key={idx}>
+        <figure className="ad-card__image">
+          <img src={el} alt={title} />
+        </figure>
+        <div className="ad-card__content">
+          <div className="ad-card__content-wrapper">
+            <span className="ad-card__ad-domain">{pageData.pageUrl}</span>
+            <span className="ad-card__ad-title">{title}</span>
+            <span className="ad-card__ad-description">{description}</span>
+          </div>
+          <button className="ad-card__ad-cta button button-m button-grey">
+            {CTA}
+          </button>
+        </div>
+      </div>
+    ));
+    adBody = <div className="ad-card__multiple-images">{adBodyWrapper}</div>;
+  } else {
+    adBody = (
+      <>
+        <figure className="ad-card__image">
+          <img src={image} alt={title} />
+        </figure>
+        <div className="ad-card__content">
+          <div className="ad-card__content-wrapper">
+            <span className="ad-card__ad-domain">{pageData.pageUrl}</span>
+            <span className="ad-card__ad-title">{title}</span>
+            <span className="ad-card__ad-description">{description}</span>
+          </div>
+          <button className="ad-card__ad-cta button button-m button-grey">
+            {CTA}
+          </button>
+        </div>
+      </>
+    );
+  }
   return (
     <>
       <div className="ad-card">
@@ -74,19 +112,7 @@ const AdCard = ({
         <div className="ad-card__post-content">
           <span className="ad-card__post-text">{title}</span>
         </div>
-        <figure className="ad-card__image">
-          <img src={image} alt={title} />
-        </figure>
-        <div className="ad-card__content">
-          <div className="ad-card__content-wrapper">
-            <span className="ad-card__ad-domain">{pageData.pageUrl}</span>
-            <span className="ad-card__ad-title">{title}</span>
-            <span className="ad-card__ad-description">{description}</span>
-          </div>
-          <button className="ad-card__ad-cta button button-m button-grey">
-            {CTA}
-          </button>
-        </div>
+        {adBody}
         <div className="ad-card__actions">
           <button className="ad-card__like button">Like</button>
           <button className="ad-card__comment button">Comment</button>

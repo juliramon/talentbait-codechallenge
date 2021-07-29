@@ -247,3 +247,25 @@
     }
   }
 }
+
+.ad-card__multiple-images {
+  display: flex;
+  flex-wrap: nowrap;
+  margin: -4px 0;
+  overflow-x: scroll;
+  .ad-card__multiple-wrapper {
+    min-width: 263px;
+    margin: 4px;
+    border-radius: 8px;
+    overflow: hidden;
+    .ad-card__content {
+      border-radius: 0 0 8px 8px;
+      overflow: hidden;
+      background-color: #ffffff;
+      border: 1px solid #e2e2e2;
+      .ad-card__ad-title {
+        white-space: normal;
+      }
+    }
+  }
+}

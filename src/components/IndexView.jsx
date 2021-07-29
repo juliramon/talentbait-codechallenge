@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Ad, Layout2 } from "tabler-icons-react";
+import { Layout2 } from "tabler-icons-react";
 import NavigationBar from "./NavigationBar";
 import ProductCard from "./ProductCard";
 import ToastNotification from "./ToastNotification";
