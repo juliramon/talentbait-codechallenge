@@ -8,12 +8,15 @@ import ProductFloatingPanel from "./ProductFloatingPanel";
 
 const IndexView = ({ productsList }) => {
   const location = useLocation();
+
   const [toastVisibility, setToastVisibility] = useState(false);
   const handleToastVisibility = () => setToastVisibility(!toastVisibility);
+
   const [productPanelVisibility, setProductPanelVisibility] = useState(false);
   const [productToShowcase, setProductToShowcase] = useState(undefined);
   const handleProductPanelVisibility = () =>
     setProductPanelVisibility(!productPanelVisibility);
+
   const listOfProducts = productsList.map((el, idx) => (
     <ProductCard
       key={idx}

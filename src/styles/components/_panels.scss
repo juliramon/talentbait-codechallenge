@@ -37,10 +37,14 @@
     position: relative;
     .panel__right-col__top-bar {
       margin-bottom: 15px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
       .panel__right-col__items-ref {
         font-size: 0.72rem;
         opacity: 0.5;
         letter-spacing: 0.2px;
+        margin-right: 20px;
       }
     }
     .panel__right-col__items {

@@ -107,10 +107,7 @@ const ReadView = ({ adsList, removeAd, createAd, updateAd }) => {
         <section className="panel">
           <div className="panel__left-col panel-white">
             <div className="panel__left-col__wrapper">
-              <Link
-                to={"/"}
-                className="panel__left-panel-button button button-active"
-              >
+              <Link to={"/"} className="panel__left-panel-button button">
                 <Layout2 size={22} strokeWidth={2} /> List of products
               </Link>
             </div>
