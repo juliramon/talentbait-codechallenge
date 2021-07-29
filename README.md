@@ -2,14 +2,16 @@
 
 Project bootstrapped with [Create React App](https://github.com/facebook/create-react-app). Follow the next steps to get started:
 
-1. In the project directory, run **npm install** or its alias **npm i** to install all packages the project depends on.
+1. Clone this project on your local dev environment
 
-2. Run one of the two scripts below to run the app in the development mode:
+2. In the project directory, run **npm install** or its alias **npm i** to install all packages the project depends on.
+
+3. Run one of the two scripts below to run the app in the development mode:
 
    1. `yarn start`
    2. `npm start`
 
-3. Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+4. Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 ## Project data
 
