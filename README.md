@@ -2,7 +2,7 @@
 
 Project bootstrapped with [Create React App](https://github.com/facebook/create-react-app). Follow the next steps to get started:
 
-1. Clone this project on your local dev environment
+1. Clone this project to your local dev environment
 
 2. In the project directory, run **npm install** or its alias **npm i** to install all packages the project depends on.
 
