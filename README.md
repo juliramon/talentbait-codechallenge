@@ -20,4 +20,4 @@ Seed data to feed the project is located under the **/utils** directory.
 ## About this project
 
 Project designed and developed by Juli Ramon for TalentBait.
-Project built with React using Reflux for dataflow architecture, SASS for styling, react-router for handling routes and Tabler Icons for icons and graphics.
+Project built with React using Reflux for dataflow architecture, SCSS for styling, react-router for handling routes and Tabler Icons for icons and graphics.
